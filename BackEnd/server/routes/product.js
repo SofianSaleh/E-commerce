@@ -1,5 +1,8 @@
 const express = require(`express`);
-const { getAllProducts } = require("../../controllers/productController");
+const {
+  getAllProducts,
+  getOneProduct,
+} = require("../../controllers/productController");
 const router = express.Router();
 
 router.get(`/`, async (req, res) => {
@@ -31,6 +34,21 @@ router.get(`/`, async (req, res) => {
     res.send({
       count: products.length,
       products,
+    });
+  } catch (e) {
+    res.json({
+      success: false,
+      message: e.message,
+    });
+  }
+});
+
+router.get(`/:id`, async (req, res) => {
+  try {
+    let product = await getOneProduct(req.params.id);
+    res.json({
+      count: product.length,
+      product,
     });
   } catch (e) {
     res.json({

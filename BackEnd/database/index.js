@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
+const { URI } = require("../nodemon");
 
-mongoose.connect(`${process.env.URI}`, {
+mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
+
 var db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));

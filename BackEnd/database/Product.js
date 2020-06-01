@@ -18,7 +18,7 @@ let productSchema = new Schema({
     // ref: "Image",
   },
   description: {
-    type: Text,
+    type: String,
     required: true,
   },
   price: {
@@ -38,4 +38,4 @@ let productSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Product", productSchema);
+module.exports = mongoose.model("Product", productSchema, "products");

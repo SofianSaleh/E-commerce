@@ -1,16 +1,15 @@
-const User = require(`../database/User`);
+const Product = require(`../database/Product`);
 
-let register = async (userInfo) => {
+let getAllProducts = async (userInfo) => {
   try {
-    const newUser = new User({ ...userInfo });
-    await newUser.save(userInfo);
-    return {
-      success: true,
-      message: `User signed up succesfully`,
-    };
+    const products = await Product.find()
+      .populate("categories")
+      .exec((err, product) => {
+        res.json({ ...product });
+      });
   } catch (e) {
     throw e;
   }
 };
 
-module.exports = { register };
+module.exports = { getAllProducts };

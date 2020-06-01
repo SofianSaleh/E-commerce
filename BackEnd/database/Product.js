@@ -8,14 +8,14 @@ let productSchema = new Schema({
   },
   image: {
     type: String,
-    // type: mongoose.Types.ObjectId,
-    // ref: image,
+    // type: Schema.Types.ObjectId,
+    // ref: "Image",
   },
   images: {
     type: [String],
 
-    // type: [mongoose.Types.ObjectId],
-    // ref: image,
+    // type: [Schema.Types.ObjectId],
+    // ref: "Image",
   },
   description: {
     type: Text,
@@ -33,8 +33,8 @@ let productSchema = new Schema({
     type: String,
   },
   category_id: {
-    type: mongoose.Types.ObjectId,
-    ref: category,
+    type: Schema.Types.ObjectId,
+    ref: "Category",
   },
 });
 

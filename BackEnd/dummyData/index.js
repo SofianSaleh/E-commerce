@@ -23,6 +23,6 @@ async function populateDatabase(
     const newProduct = new Product({ ...products[k] });
     await newProduct.save();
   }
-  return ` done`;
+  console.log(`done`);
 }
-populateDatabase(users, categories, products);
+populateDatabase([], [], products);

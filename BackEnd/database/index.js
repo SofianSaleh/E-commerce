@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { URI } = require("../nodemon");
+const { URI } = require("../env");
 
 mongoose.connect(URI, {
   useNewUrlParser: true,

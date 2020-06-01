@@ -25,7 +25,13 @@ router.get(`/`, async (req, res) => {
       startValue = 0;
       endValue = 10;
     }
-    res.send(await getAllProducts());
+
+    let products = await getAllProducts();
+    products = products.slice(startValue, endValue);
+    res.send({
+      count: products.length,
+      products,
+    });
   } catch (e) {
     res.json({
       success: false,

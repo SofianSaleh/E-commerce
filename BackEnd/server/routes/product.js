@@ -1,5 +1,5 @@
 const express = require(`express`);
-const {} = require("../../controllers/userController");
+const { getAllProducts } = require("../../controllers/productController");
 const router = express.Router();
 
 router.get(`/`, async (req, res) => {
@@ -25,6 +25,7 @@ router.get(`/`, async (req, res) => {
       startValue = 0;
       endValue = 10;
     }
+    res.send(await getAllProducts());
   } catch (e) {
     res.json({
       success: false,

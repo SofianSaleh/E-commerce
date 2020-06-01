@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const db = require("../database/index");
 const PORT = process.env.PORT || 5000;
-require("dotenv").config();
 
 const app = express();
 app.use(
@@ -16,11 +16,10 @@ app.use(
 
 app.use(express.json());
 
-app.use("/api/welcome", (req, res) => {
-  res.send({ world: "hello" });
-});
+//Routes
+app.use(`/api/user`, require(`./routes/user`));
+app.use(`/api/product`, require(`./routes/product`));
 
-app.listen(PORT, async () => {
-  await db.connection();
+app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });

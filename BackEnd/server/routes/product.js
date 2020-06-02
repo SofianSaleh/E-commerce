@@ -13,12 +13,9 @@ router.get(`/`, async (req, res) => {
   try {
     // Page number that will be passed from the front end
     const { startValue, endValue } = Helper(req.query.pages, req.query.limit);
-    let products = await getAllProducts();
-    products = products.slice(startValue, endValue);
-    res.send({
-      count: products.length,
-      products,
-    });
+    let products = await getAllProducts(startValue, endValue);
+
+    res.json(products);
   } catch (e) {
     res.json({
       success: false,
@@ -33,9 +30,9 @@ router.get(`/:id`, async (req, res) => {
   try {
     let product = await getOneProduct(req.params.id);
     if (count === 0) {
-      res.json({});
+      res.json(product);
     }
-    res.json(...product);
+    res.json(product);
   } catch (e) {
     res.json({
       success: false,
@@ -49,7 +46,12 @@ router.get(`/:id`, async (req, res) => {
 router.get(`/category/:categoryName`, async (req, res) => {
   try {
     const { startValue, endValue } = Helper(req.query.pages, req.query.limit);
-    await getByCategory(req.params.categoryName);
+    let products = await getByCategory(
+      req.params.categoryName,
+      startValue,
+      endValue
+    );
+    res.json(products);
   } catch (e) {
     throw e.message;
   }

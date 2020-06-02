@@ -17,12 +17,37 @@ let getAllProducts = async () => {
 
 let getOneProduct = async (productId) => {
   try {
-    const product = await Product.findOne({ _id: productId }).lean();
-    console.log(product);
-    return product;
+    const products = await Product.findOne({ _id: productId }).lean();
+    if (products.length === 0) {
+      return {
+        count: 0,
+        message: `No products were found`,
+        products: null,
+      };
+    } else {
+      return {
+        count: product.length,
+        message,
+        products,
+      };
+    }
   } catch (e) {
     throw e;
   }
 };
 
-module.exports = { getAllProducts, getOneProduct };
+let getByCategory = async (category) => {
+  try {
+    const categoryId = await Category.findOne({ title: category })
+      .lean()
+      .select(`_id`);
+    const categorizedProducts = Product.find({
+      category_id: categoryId._id,
+    }).lean();
+    console.log(categorizedProducts);
+  } catch (e) {
+    throw e;
+  }
+};
+
+module.exports = { getAllProducts, getOneProduct, getByCategory };

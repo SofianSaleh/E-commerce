@@ -131,7 +131,7 @@ let orderDetails = [
 let orders = [
   {
     user_id: "5ed4c71cbdfacb35cc08f0a6",
-    orders: [
+    orders_id: [
       "5ed608b14307282494ed16c6",
       "5ed608b24307282494ed16c8",
       "5ed608b24307282494ed16ca",
@@ -139,11 +139,11 @@ let orders = [
   },
   {
     user_id: "5ed60865b674f71e0c8ac0ef",
-    orders: ["5ed608b14307282494ed16c7", "5ed608b24307282494ed16c9"],
+    orders_id: ["5ed608b14307282494ed16c7", "5ed608b24307282494ed16c9"],
   },
   {
     user_id: "5ed4c727bdfacb35cc08f0aa",
-    orders: ["5ed608b34307282494ed16cb"],
+    orders_id: ["5ed608b34307282494ed16cb"],
   },
 ];
 

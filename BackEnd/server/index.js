@@ -19,6 +19,7 @@ app.use(express.json());
 //Routes
 app.use(`/api/user`, require(`./routes/user`));
 app.use(`/api/product`, require(`./routes/product`));
+app.use(`/api/order`, require(`./routes/order`));
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

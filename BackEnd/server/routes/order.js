@@ -5,9 +5,14 @@ const router = express.Router();
 
 router.get(`/`, async (req, res) => {
   try {
-    const x = await getAllOrders();
+    const orders = await getAllOrders();
+    res.json(orders);
   } catch (e) {
-    console.log(e.message);
+    return {
+      count: 0,
+      message: e.message,
+      orders: null,
+    };
   }
 });
 

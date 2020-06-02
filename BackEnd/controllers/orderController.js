@@ -10,13 +10,20 @@ let getAllOrders = async () => {
         populate: {
           path: "product_id",
           model: "Product",
+          select: "title image price",
+          populate: {
+            path: "category_id",
+            model: "Category",
+            select: "title",
+          },
         },
       })
       .populate({
         path: "user_id",
         model: "User",
         select: "username firstName lastName email",
-      });
+      })
+      .lean();
     return {
       count: orders.length,
       message:

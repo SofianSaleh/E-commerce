@@ -5,13 +5,15 @@ let getAllProducts = async (start, end) => {
   try {
     const products = await Product.find()
       .select("title image description price -_id")
-      .populate("category_id", Category)
+      .populate("category_id", {
+        select: "category.title -category._id",
+      })
       .lean();
     return {
       count: products.length,
       message:
         products.length > 0 ? ` Products found ` : `No products were found`,
-      products: products.slice(startValue, endValue),
+      products: products.slice(start, end),
     };
   } catch (e) {
     throw e;
@@ -34,23 +36,22 @@ let getOneProduct = async (productId) => {
 
 let getByCategory = async (category, start, end) => {
   try {
-    const categoryId = await Category.findOne(
-      { title: category },
-      { lean: true }
-    ).select(`_id`);
-    const categorizedProducts = await Product.find({
-      category_id: categoryId._id,
-    })
+    const categorizedProducts = await Product.find().populate({
+      path: "category_id",
+      match: {
+        title: category,
+      },
+    });
+    let products = categorizedProducts
+      .filter((cat) => {
+        return cat.category_id;
+      })
+      .slice(start, end);
 
-      .populate("category_id", Category)
-      .lean();
-    let products = categorizedProducts.slice(start, end);
     return {
-      count: categorizedProducts.length,
+      count: products.length,
       message:
-        categorizedProducts.length > 0
-          ? ` Products found `
-          : ` No products were found `,
+        products.length > 0 ? ` Products found ` : ` No products were found `,
       products,
     };
   } catch (e) {

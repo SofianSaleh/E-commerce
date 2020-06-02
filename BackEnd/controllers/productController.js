@@ -3,16 +3,14 @@ const Category = require(`../database/Categories`);
 
 let getAllProducts = async (start, end) => {
   try {
-    console.log(`hi $run`);
     const products = await Product.find()
       .select("title image description price -_id")
       .populate("category_id", {
         select: "category.title -category._id",
       })
       .lean();
-    console.log(products);
     return {
-      count: products.length,
+      count: end - start,
       message:
         products.length > 0 ? ` Products found ` : `No products were found`,
       products: products.slice(start, end),

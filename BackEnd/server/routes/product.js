@@ -12,12 +12,13 @@ const Helper = require("../../helpers.js/pages");
 router.get(`/`, async (req, res) => {
   try {
     // Page number that will be passed from the front end
-    console.log(`hit`);
-    const { startValue, endValue } = Helper(req.query.pages, req.query.limit);
-    console.log(startValue, endValue);
+    console.log(parseInt(req.query.limit));
+    const { startValue, endValue } = Helper(
+      req.query.pages,
+      parseInt(req.query.limit)
+    );
 
     let products = await getAllProducts(startValue, endValue);
-    console.log(products);
 
     res.status(200).json(products);
   } catch (e) {
@@ -49,7 +50,10 @@ router.get(`/:id`, async (req, res) => {
 
 router.get(`/category/:categoryName`, async (req, res) => {
   try {
-    const { startValue, endValue } = Helper(req.query.pages, req.query.limit);
+    const { startValue, endValue } = Helper(
+      req.query.pages,
+      parseInt(req.query.limit)
+    );
     let products = await getByCategory(
       req.params.categoryName,
       startValue,

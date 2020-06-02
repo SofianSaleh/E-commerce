@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService
-      .getAllProducts()
+      .getAllProducts(3)
       .subscribe(
         (prods: { count: Number; message: String; products: any[] }) => {
           console.log(prods);

@@ -15,9 +15,9 @@ router.get(`/`, async (req, res) => {
     const { startValue, endValue } = Helper(req.query.pages, req.query.limit);
     let products = await getAllProducts(startValue, endValue);
 
-    res.json(products);
+    res.sendStatus(200).json(products);
   } catch (e) {
-    res.json({
+    res.sendStatus(400).json({
       success: false,
       message: e.message,
     });
@@ -30,11 +30,11 @@ router.get(`/:id`, async (req, res) => {
   try {
     let product = await getOneProduct(req.params.id);
     if (count === 0) {
-      res.json(product);
+      res.sendStatus(200).json(product);
     }
     res.json(product);
   } catch (e) {
-    res.json({
+    res.sendStatus(400).json({
       success: false,
       message: e.message,
     });
@@ -51,9 +51,13 @@ router.get(`/category/:categoryName`, async (req, res) => {
       startValue,
       endValue
     );
-    res.json(products);
+    res.sendStatus(200).json(products);
   } catch (e) {
-    throw e.message;
+    res.sendStatus(400).json({
+      count: 0,
+      message: e.message,
+      products: null,
+    });
   }
 });
 

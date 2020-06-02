@@ -1,4 +1,5 @@
 const Order = require("../database/Order");
+const Product = require("../database/Product");
 const OrderDetails = require("../database/OrderDetails");
 
 // fetching all the orders
@@ -80,12 +81,26 @@ let addProductsToOrder = async (products) => {
   try {
     let arrOfIds = [];
     for (let i = 0; i < products.length; i++) {
-      let newOrderedProduct = new OrderDetails({
-        product_id: products[i].id,
-        quantity: products[i].quantity,
-      });
-      await newOrderedProduct.save();
-      arrOfIds.push(newOrderedProduct._id);
+      let productQuantityCheck = await Product.findOne({ _id: products[i].id });
+
+      if (productQuantityCheck.quantity >= products[i].quantity) {
+        let newOrderedProduct = new OrderDetails({
+          product_id: products[i].id,
+          quantity: products[i].quantity,
+        });
+
+        await newOrderedProduct.save();
+
+        arrOfIds.push(newOrderedProduct._id);
+
+        await Product.update(
+          { _id: products[i].id },
+          { $inc: { quantity: -products[i].quantity } }
+        );
+      } else {
+        console.log(`dsfsdfsd`);
+        return ` Not enough items left there are only ${productQuantityCheck.quantity} left of ${productQuantityCheck.title} `;
+      }
     }
     console.log(`arrofids`, arrOfIds);
 
@@ -98,6 +113,13 @@ let addProductsToOrder = async (products) => {
 let createOrder = async ({ user_id, products }) => {
   try {
     const ordersArr = await addProductsToOrder(products);
+    console.log(!Array.isArray(ordersArr));
+    if (!Array.isArray(ordersArr)) {
+      return {
+        message: ` Error `,
+        ordersArr,
+      };
+    }
     let newOrder = new Order({
       user_id,
       orders_id: ordersArr,

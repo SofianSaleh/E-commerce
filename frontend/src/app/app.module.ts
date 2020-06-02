@@ -10,6 +10,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/product/product.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,10 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
     CheckoutComponent,
     HomeComponent,
     ProductComponent,
-    ThankYouComponent
+    ThankYouComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

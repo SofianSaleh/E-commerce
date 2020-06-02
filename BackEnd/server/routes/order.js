@@ -11,9 +11,9 @@ const router = express.Router();
 router.get(`/`, async (req, res) => {
   try {
     const orders = await getAllOrders();
-    res.sendStatus(200).json(orders);
+    res.status(200).json(orders);
   } catch (e) {
-    res.sendStatus(400).json({
+    res.status(400).json({
       count: 0,
       message: e.message,
       orders: null,
@@ -26,9 +26,9 @@ router.get(`/:id`, async (req, res) => {
   try {
     const order = await getSingleOrder(req.params.id);
 
-    res.sendStatus(200).sendStatus(200).json(order);
+    res.status(200).status(200).json(order);
   } catch (e) {
-    res.sendStatus(400).json({
+    res.status(400).json({
       count: 0,
       message: e.message,
       order: null,
@@ -40,9 +40,9 @@ router.get(`/:id`, async (req, res) => {
 router.post(`/add`, async (req, res) => {
   try {
     const ordered = await createOrder(req.body);
-    res.sendStatus(200).json(ordered);
+    res.status(200).json(ordered);
   } catch (e) {
-    res.sendStatus(400).json({
+    res.status(400).json({
       message: e.message,
     });
   }

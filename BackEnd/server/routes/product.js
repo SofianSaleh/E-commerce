@@ -12,12 +12,16 @@ const Helper = require("../../helpers.js/pages");
 router.get(`/`, async (req, res) => {
   try {
     // Page number that will be passed from the front end
+    console.log(`hit`);
     const { startValue, endValue } = Helper(req.query.pages, req.query.limit);
-    let products = await getAllProducts(startValue, endValue);
+    console.log(startValue, endValue);
 
-    res.sendStatus(200).json(products);
+    let products = await getAllProducts(startValue, endValue);
+    console.log(products);
+
+    res.status(200).json(products);
   } catch (e) {
-    res.sendStatus(400).json({
+    res.status(400).json({
       success: false,
       message: e.message,
     });
@@ -30,11 +34,11 @@ router.get(`/:id`, async (req, res) => {
   try {
     let product = await getOneProduct(req.params.id);
     if (count === 0) {
-      res.sendStatus(200).json(product);
+      res.status(200).json(product);
     }
     res.json(product);
   } catch (e) {
-    res.sendStatus(400).json({
+    res.Status(400).json({
       success: false,
       message: e.message,
     });
@@ -51,9 +55,9 @@ router.get(`/category/:categoryName`, async (req, res) => {
       startValue,
       endValue
     );
-    res.sendStatus(200).json(products);
+    res.status(200).json(products);
   } catch (e) {
-    res.sendStatus(400).json({
+    res.status(400).json({
       count: 0,
       message: e.message,
       products: null,

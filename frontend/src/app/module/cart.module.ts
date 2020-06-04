@@ -10,7 +10,7 @@ export interface CartModelServer {
 
 export interface CartModelPublic {
   total: number;
-  proData: [{
+  prodData: [{
     _id: number,
     inCart: number;
   }];

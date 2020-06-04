@@ -5,8 +5,8 @@ import {OrderService} from './order.service';
 import {environment} from '../../environments/environment';
 import {CartModelPublic, CartModelServer} from '../module/cart.module';
 import {BehaviorSubject} from 'rxjs';
-import { Router} from '@angular/router';
-import {ProductModelServer} from '../module/product.module';
+import {NavigationExtras, Router} from '@angular/router';
+import {Category, ProductModelServer} from '../module/product.module';
 
 @Injectable({
   providedIn: 'root'
@@ -192,6 +192,69 @@ export class CartService {
       }
     }else {
       // TODO: if the user clicks the cancel button
+      return;
     }
   }
+
+  private calculateTheTotal(){
+    let Total = 0;
+    this.cartDataServer.data.forEach(p => {
+      const { numberOfItemsInCart } = p;
+      const { price } = p.product;
+
+      Total += (numberOfItemsInCart * price);
+    });
+    this.cartDataServer.total = Total ;
+    this.cartData$.next({...this.cartDataServer});
+  }
+
+
+  checkotFromCart(userId: number) {
+    this.http.post(`${this.serverUrl}/order/payment`, null).subscribe((res: {success: boolean}) => {
+      if (res.success) {
+        this.resetServer();
+        this.http.post(`${this.serverUrl}/order/add`, {
+          user_id: userId,
+          products: this.cartDataClient.prodData
+        }).subscribe((data: OrderResponse) => {
+            this.orderService.getOneOrder(data.newOrder._id).then(prod => {
+          if (data.success) {
+            const navigationExtras: NavigationExtras = {
+              state: {
+                message: data.message,
+                order_id: data.newOrder._id,
+                products: prods,
+                total: this.cartDataClient.total
+              }
+            };
+          //  Todo: Hide spinner
+            this.router.navigate(['/thankyou',navigationExtras])
+          }
+         });
+        });
+      }
+    });
+  }
+
+  private resetServer(); {
+    this.cartDataServer = {
+      total: 0,
+      data: [{
+        product: undefined,
+        numberOfItemsInCart: 0
+      }]
+    };
+    this.cartData$.next(({...this.cartDataServer}));
+  }
 }
+
+interface OrderResponse {
+  success: boolean;
+  message: string;
+  newOrder: {
+    _id: number;
+    orders_id: any[];
+    user_id: number
+  };
+}
+

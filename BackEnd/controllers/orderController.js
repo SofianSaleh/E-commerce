@@ -98,11 +98,9 @@ let addProductsToOrder = async (products) => {
           { $inc: { quantity: -products[i].quantity } }
         );
       } else {
-        console.log(`dsfsdfsd`);
         return ` Not enough items left there are only ${productQuantityCheck.quantity} left of ${productQuantityCheck.title} `;
       }
     }
-    console.log(`arrofids`, arrOfIds);
 
     return arrOfIds;
   } catch (e) {
@@ -116,8 +114,9 @@ let createOrder = async ({ user_id, products }) => {
     console.log(!Array.isArray(ordersArr));
     if (!Array.isArray(ordersArr)) {
       return {
+        success:false,
         message: ` Error `,
-        ordersArr,
+        newOrder: ordersArr,
       };
     }
     let newOrder = new Order({
@@ -128,6 +127,7 @@ let createOrder = async ({ user_id, products }) => {
     await newOrder.save();
 
     return {
+      success:true,
       message: `Your order was saved successfully`,
       newOrder,
     };

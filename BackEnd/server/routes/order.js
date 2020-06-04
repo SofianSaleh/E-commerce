@@ -48,4 +48,10 @@ router.post(`/add`, async (req, res) => {
   }
 });
 
+router.post(`/payment`, (req,res) => {
+  return {
+    success:true
+  }
+})
+
 module.exports = router;

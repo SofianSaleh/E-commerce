@@ -47,8 +47,9 @@
             <form>
               <select class="input-select">
                 <option value="0">All Categories</option>
+                <!-- Fetch the categories -->
                 <option value="1">Category 01</option>
-                <option value="1">Category 02</option>
+                <option value="2">Category 02</option>
               </select>
               <input class="input" placeholder="Search here" />
               <button class="search-btn">Search</button>
@@ -65,7 +66,7 @@
               <a href="#">
                 <i class="fa fa-heart-o"></i>
                 <span>Your Wishlist</span>
-                <div class="qty">2</div>
+                <div class="qty">0</div>
               </a>
             </div>
             <!-- /Wishlist -->
@@ -79,7 +80,7 @@
               >
                 <i class="fa fa-shopping-cart"></i>
                 <span>Your Cart</span>
-                <div class="qty">3</div>
+                <div class="qty">0</div>
               </a>
               <div class="cart-dropdown">
                 <div class="cart-list">
@@ -98,7 +99,7 @@
                     <button class="delete"><i class="fa fa-close"></i></button>
                   </div>
 
-                  <div class="product-widget">
+                  <!-- <div class="product-widget">
                     <div class="product-img">
                       <img src="./img/product02.png" alt="" />
                     </div>
@@ -111,15 +112,15 @@
                       </h4>
                     </div>
                     <button class="delete"><i class="fa fa-close"></i></button>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="cart-summary">
-                  <small>3 Item(s) selected</small>
-                  <h5>SUBTOTAL: $2940.00</h5>
+                  <small>0 Item(s) selected</small>
+                  <h5>SUBTOTAL: $0.00</h5>
                 </div>
                 <div class="cart-btns">
-                  <a href="#">View Cart</a>
-                  <a href="#"
+                  <a routerLink="/cart">View Cart</a>
+                  <a routerLink="/checkout"
                     >Checkout <i class="fa fa-arrow-circle-right"></i
                   ></a>
                 </div>
@@ -155,13 +156,10 @@
     <div id="responsive-nav">
       <!-- NAV -->
       <ul class="main-nav nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Hot Deals</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Laptops</a></li>
-        <li><a href="#">Smartphones</a></li>
-        <li><a href="#">Cameras</a></li>
-        <li><a href="#">Accessories</a></li>
+        <li class="active"><a routerLink="/">Home</a></li>
+        <li><a routerLink="">Hot Deals</a></li>
+        <li><a routerLink="">Categories</a></li>
+        <li><a routerLink="/">Contact Us</a></li>
       </ul>
       <!-- /NAV -->
     </div>

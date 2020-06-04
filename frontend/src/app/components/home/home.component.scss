@@ -1,0 +1,17 @@
+.main-product {
+  display: inline-block;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.main-product-img {
+  width: 300px;
+  height: 170px;
+  align-content: center;
+}
+
+/* resize images */
+.main-product-img img {
+  width: 100%;
+  height: auto;
+}

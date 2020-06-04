@@ -4,9 +4,11 @@ const Category = require(`../database/Categories`);
 let getAllProducts = async (start, end) => {
   try {
     const products = await Product.find()
-      .select("title image description price -_id")
-      .populate("category_id", {
-        select: "category.title -category._id",
+      .select("title image description price")
+      .populate({
+        path: "category_id",
+        model: "Category",
+        select: `title -_id`,
       })
       .lean();
     return {

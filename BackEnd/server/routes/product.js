@@ -12,7 +12,6 @@ const Helper = require("../../helpers.js/pages");
 router.get(`/`, async (req, res) => {
   try {
     // Page number that will be passed from the front end
-    console.log(parseInt(req.query.limit));
     const { startValue, endValue } = Helper(
       req.query.pages,
       parseInt(req.query.limit)

@@ -4,7 +4,7 @@ const Category = require(`../database/Categories`);
 let getAllProducts = async (start, end) => {
   try {
     const products = await Product.find()
-      .select("title image description price")
+      .select("title image description price quantity")
       .populate({
         path: "category_id",
         model: "Category",

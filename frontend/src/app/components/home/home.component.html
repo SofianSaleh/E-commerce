@@ -99,6 +99,7 @@
                     <h3 class="product-name">
                       <a href="#">{{ p.title }}</a>
                     </h3>
+                    <h6>{{ p.description.substr(0, 25) }} ...</h6>
                     <h4 class="product-price">
                       ${{ p.price }}
                       <del
@@ -128,8 +129,10 @@
                     </div>
                   </div>
                   <div class="add-to-cart">
-                    <button class="add-to-cart-btn">
-                      <i class="fa fa-shopping-cart"></i> add to cart
+                    <button class="add-to-cart-btn"
+                    [class.disabled]="p.quantity < 1"
+                    >
+                      <i class="fa fa-shopping-cart"></i> {{p.quantity > 0 ? "add to cart" : "Not in Stock"}}
                     </button>
                   </div>
                 </div>

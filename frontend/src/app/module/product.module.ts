@@ -7,6 +7,7 @@ export interface ProductModelServer {
   title: string;
   description: string;
   image: string;
+  quantity: number;
   price: number;
   category_id: Category;
 }

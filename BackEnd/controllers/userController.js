@@ -7,7 +7,7 @@ let register = async (userInfo) => {
 
     return {
       success: true,
-      message: `User signed up succesfully`,
+      message: `User signed up successfully`,
     };
   } catch (e) {
     throw e;

@@ -7,7 +7,7 @@ mongoose.connect(URI, {
   useCreateIndex: true,
 });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
 

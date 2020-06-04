@@ -223,12 +223,12 @@ export class CartService {
               state: {
                 message: data.message,
                 order_id: data.newOrder._id,
-                products: prods,
+                products: prod,
                 total: this.cartDataClient.total
               }
             };
           //  Todo: Hide spinner
-            this.router.navigate(['/thankyou',navigationExtras])
+            this.router.navigate(['/thankyou', navigationExtras]);
           }
          });
         });
@@ -236,7 +236,7 @@ export class CartService {
     });
   }
 
-  private resetServer(); {
+  private resetServer() {
     this.cartDataServer = {
       total: 0,
       data: [{

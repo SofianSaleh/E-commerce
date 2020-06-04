@@ -81,6 +81,27 @@ export class CartService {
 
 //  add items to the cart
   addProductToCart(id: number, quantity?: number) {
-    
+    this.productService.getSingleProduct(id).subscribe(prod => {
+
+      // 1. If the cart is not empty
+
+      if(this.cartDataServer.data[0] === undefined) {
+        this.cartDataServer.data[0].product = prod;
+        this.cartDataServer.data[0].numberOfItemsInCart = quantity !== undefined ? quantity : 1 ;
+      //  TODO: count the total
+        this.cartDataClient.prodData[0].inCart = this.cartDataServer.data[0].numberOfItemsInCart;
+        this.cartDataClient.prodData[0]._id = prod._id;
+        this.cartDataClient.total = this.cartDataServer.total;
+
+        localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
+        this.cartData$.next({...this.cartDataServer})
+        //  TODO: push notification
+      }
+
+    //  2. If cart is not empty
+    //  2.a If the product already exists
+
+      
+    })
   }
 }

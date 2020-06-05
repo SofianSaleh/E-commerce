@@ -131,6 +131,7 @@
                   <div class="add-to-cart">
                     <button class="add-to-cart-btn"
                     [class.disabled]="p.quantity < 1"
+                            (click)="addToCart(p._id)"
                     >
                       <i class="fa fa-shopping-cart"></i> {{p.quantity > 0 ? "add to cart" : "Not in Stock"}}
                     </button>

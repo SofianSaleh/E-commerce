@@ -114,7 +114,7 @@ let createOrder = async ({ user_id, products }) => {
     console.log(!Array.isArray(ordersArr));
     if (!Array.isArray(ordersArr)) {
       return {
-        success:false,
+        success: false,
         message: ` Error `,
         newOrder: ordersArr,
       };
@@ -129,7 +129,7 @@ let createOrder = async ({ user_id, products }) => {
     return {
       success:true,
       message: `Your order was saved successfully`,
-      newOrder,
+      order: newOrder,
     };
   } catch (e) {
     throw e;

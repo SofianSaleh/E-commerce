@@ -13,7 +13,7 @@ export class OrderService {
 
 // get single order
 
-  getOneOrder(id: number){
+  getSingleOrder(id: string){
     return this.http.get<ProductResponseInterface>(`${this.serverUrl}/order/${id}`).toPromise();
   }
 }

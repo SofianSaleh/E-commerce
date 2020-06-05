@@ -33,12 +33,9 @@ router.get(`/`, async (req, res) => {
 router.get(`/:id`, async (req, res) => {
   try {
     let product = await getOneProduct(req.params.id);
-    if (count === 0) {
-      res.status(200).json(product);
-    }
-    res.json(product);
+    res.status(200).json(product);
   } catch (e) {
-    res.Status(400).json({
+    res.status(400).json({
       success: false,
       message: e.message,
     });

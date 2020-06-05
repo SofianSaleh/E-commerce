@@ -24,8 +24,8 @@ export class ProductService {
   }
 
 //  Get a single product
-  getSingleProduct(id: number): Observable<ProductModelServer>{
-    return this.http.get <ProductModelServer>(`${this.SERVER_URL}/product/${id}`)
+  getSingleProduct(id: string): Observable<ProductModelServer>{
+    return this.http.get<ProductModelServer>(`${this.SERVER_URL}/product/${id}`);
   }
 
 //  Get products from category

@@ -11,7 +11,7 @@ export interface CartModelServer {
 export interface CartModelPublic {
   total: number;
   prodData: [{
-    _id: number,
+    _id: string,
     inCart: number;
   }];
 }

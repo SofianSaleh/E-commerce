@@ -28,7 +28,7 @@ let getOneProduct = async (productId) => {
     return {
       count: product.length,
       message:
-        product.length > 0 ? ` Product found ` : `No products were found`,
+        !!product ? ` Product found ` : `No products were found`,
       product,
     };
   } catch (e) {

@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/product/product.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductComponent,
     ThankYouComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxSpinnerModule, ToastrModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })

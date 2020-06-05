@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ProductService} from './product.service';
 import {BehaviorSubject} from 'rxjs';
-import {CartModelPublic, CartModelServer} from '../models/cart.model';
-import {ProductModelServer} from '../models/product.model';
+import {CartModelPublic, CartModelServer} from '../module/cart.module';
+import {ProductModelServer} from '../module/product.module';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {NavigationExtras, Router} from '@angular/router';
@@ -24,6 +24,7 @@ export class CartService {
 
 
   /* Variable to store data in the server */
+  // @ts-ignore
   private cartDataServer: CartModelServer = {
     data: [{
       product: undefined,
@@ -33,7 +34,7 @@ export class CartService {
   };
 
   // Observables to subscribe
-  cartTotal$ = new BehaviorSubject<Number>(0);
+  cartTotal$ = new BehaviorSubject<number>(0);
   // Data variable to store the cart information on the client's local storage
 
   cartDataObs$ = new BehaviorSubject<CartModelServer>(this.cartDataServer);
@@ -59,7 +60,7 @@ export class CartService {
       this.cartDataClient = info;
       // Loop through each entry and put it in the cartDataServer object
       this.cartDataClient.prodData.forEach(p => {
-        this.productService.getSingleProduct(p.id).subscribe((actualProdInfo: ProductModelServer) => {
+        this.productService.getSingleProduct(p._id).subscribe((actualProdInfo: ProductModelServer) => {
           if (this.cartDataServer.data[0].numInCart === 0) {
             this.cartDataServer.data[0].numInCart = p.incart;
             this.cartDataServer.data[0].product = actualProdInfo;
@@ -95,20 +96,22 @@ export class CartService {
   AddProductToCart(id: string, quantity?: number) {
 
     this.productService.getSingleProduct(id).subscribe(prod => {
-      console.log(this.cartDataServer.data[0].product === undefined);
       // If the cart is empty
+      const product = prod.product;
+
       if (this.cartDataServer.data[0].product === undefined) {
-        this.cartDataServer.data[0].product = prod;
+        this.cartDataServer.data[0].product = product;
         this.cartDataServer.data[0].numInCart = quantity !== undefined ? quantity : 1;
         this.CalculateTotal();
+
         this.cartDataClient.prodData[0].incart = this.cartDataServer.data[0].numInCart;
         // @ts-ignore
-        this.cartDataClient.prodData[0].id = prod.product._id;
+        this.cartDataClient.prodData[0].id = product._id;
         this.cartDataClient.total = this.cartDataServer.total;
 
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
         this.cartDataObs$.next({...this.cartDataServer});
-        this.toast.success(`${prod.product.title} added to the cart.`, 'Product Added', {
+        this.toast.success(`${product.title} added to the cart.`, 'Product Added', {
           timeOut: 1500,
           progressBar: true,
           progressAnimation: 'increasing',
@@ -119,27 +122,30 @@ export class CartService {
       else {
         // @ts-ignore
         // this.cartDataServer.data.product.
-        const index = this.cartDataServer.data.findIndex(p => p.product.product._id ===  prod.product._id);
+        const index = this.cartDataServer.data.findIndex(p => {
+          console.log(p.product._id , product._id)
+          return p.product._id ===  product._id;
+        });
 
         // 1. If chosen product is already in cart array
         if (index !== -1) {
-  console.log(quantity);
-  if (quantity !== undefined && quantity <= prod.product.quantity) {
+
+  if (quantity !== undefined && quantity <= product.quantity) {
             // @ts-ignore
             // tslint:disable-next-line:max-line-length
             this.cartDataServer.data[index].numInCart =
-              this.cartDataServer.data[index].numInCart < prod.product.quantity ?
-                quantity : prod.product.quantity;
+              this.cartDataServer.data[index].numInCart < product.quantity ?
+                quantity : product.quantity;
           } else {
             // @ts-ignore
             // tslint:disable-next-line:no-unused-expression
-    this.cartDataServer.data[index].numInCart < prod.product.quantity ?
-              this.cartDataServer.data[index].numInCart++ : prod.product.quantity;
+    this.cartDataServer.data[index].numInCart < product.quantity ?
+              this.cartDataServer.data[index].numInCart++ : product.quantity;
           }
 
 
   this.cartDataClient.prodData[index].incart = this.cartDataServer.data[index].numInCart;
-  this.toast.info(`${prod.title} quantity updated in the cart.`, 'Product Updated', {
+  this.toast.info(`${product.title} quantity updated in the cart.`, 'Product Updated', {
             timeOut: 1500,
             progressBar: true,
             progressAnimation: 'increasing',
@@ -149,14 +155,14 @@ export class CartService {
         // 2. If chosen product is not in cart array
         else {
           this.cartDataServer.data.push({
-            product: prod.product,
+            product: product,
             numInCart: 1
           });
           this.cartDataClient.prodData.push({
             incart: 1,
-            id: prod.product._id
+            _id: product._id
           });
-          this.toast.success(`${prod.product.title} added to the cart.`, 'Product Added', {
+          this.toast.success(`${product.title} added to the cart.`, 'Product Added', {
             timeOut: 1500,
             progressBar: true,
             progressAnimation: 'increasing',
@@ -181,7 +187,10 @@ export class CartService {
       data.numInCart < data.product.quantity ? data.numInCart++ : data.product.quantity;
       this.cartDataClient.prodData[index].incart = data.numInCart;
       this.CalculateTotal();
+
       this.cartDataClient.total = this.cartDataServer.total;
+      console.log(this.cartDataServer,this.cartDataClient)
+
       this.cartDataObs$.next({...this.cartDataServer});
       localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
     } else {
@@ -293,11 +302,11 @@ export class CartService {
 
   private CalculateTotal() {
     let Total = 0;
-
     this.cartDataServer.data.forEach(p => {
       const {numInCart} = p;
       const {price} = p.product;
       // @ts-ignore
+      console.log(p)
       Total += numInCart * price;
     });
     this.cartDataServer.total = Total;

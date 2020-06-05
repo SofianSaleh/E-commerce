@@ -13,6 +13,8 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     ProductComponent,
     ThankYouComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxSpinnerModule, ToastrModule.forRoot()],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxSpinnerModule, BrowserAnimationsModule, ToastrModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -3,14 +3,17 @@ export interface Category {
 }
 
 export interface ProductModelServer {
-  _id: string;
-  title: string;
-  description: string;
-  image: string;
-  quantity: number;
-  price: number;
-  category_id: Category;
+  // product: {
+    _id: string;
+    title: string;
+    description: string;
+    image: string;
+    quantity: number;
+    price: number;
+    category_id: Category;
+  // };
 }
+
 
 
 export interface ServerResponse {

@@ -4,14 +4,14 @@ export interface CartModelServer {
   total: number;
   data: [{
     product: ProductModelServer,
-    numberOfItemsInCart: number;
+    numInCart: number;
   }];
 }
 
 export interface CartModelPublic {
   total: number;
   prodData: [{
-    _id: string,
-    inCart: number;
+    _id: string;
+    incart: number;
   }];
 }

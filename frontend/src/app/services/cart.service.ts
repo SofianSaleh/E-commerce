@@ -275,7 +275,8 @@ export class CartService {
               };
               this.spinner.hide().then();
               this.router.navigate(['/thankyou'], navigationExtras).then(p => {
-                this.cartDataClient = {prodData: [{incart: 0, id: 0}], total: 0};
+                // @ts-ignore
+                this.cartDataClient = {prodData: [{incart: 0, id: ''}], total: 0};
                 this.cartTotal$.next(0);
                 localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
               });

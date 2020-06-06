@@ -27,14 +27,12 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  selectedProduct(id: Number) {
-    console.log(id);
+  selectedProduct(id: string) {
     this.router.navigate(['/product', id]).then()
   }
 
 
-  addToCart(id: number) {
-    console.log(`hi`)
+  addToCart(id: string) {
     this.cartService.AddProductToCart(id);
   }
 }

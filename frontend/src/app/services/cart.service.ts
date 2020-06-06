@@ -20,7 +20,8 @@ export class CartService {
   ServerURL  = environment.SERVICE_URL;
 
   /* Variable to store data in the local storage*/
-  private cartDataClient: CartModelPublic = {prodData: [{incart: 0, id: 0}], total: 0};
+  // @ts-ignore
+  private cartDataClient: CartModelPublic = {prodData: [{incart: 0, id: ''}], total: 0};
 
 
   /* Variable to store data in the server */
@@ -45,7 +46,7 @@ export class CartService {
               private httpClient: HttpClient,
               private router: Router,
               private spinner: NgxSpinnerService,
-              private toast: ToastrService) {
+              private toastr: ToastrService) {
 
 
     this.cartTotal$.next(this.cartDataServer.total);
@@ -111,7 +112,7 @@ export class CartService {
 
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
         this.cartDataObs$.next({...this.cartDataServer});
-        this.toast.success(`${product.title} added to the cart.`, 'Product Added', {
+        this.toastr.success(`${product.title} added to the cart.`, 'Product Added', {
           timeOut: 1500,
           progressBar: true,
           progressAnimation: 'increasing',
@@ -122,10 +123,7 @@ export class CartService {
       else {
         // @ts-ignore
         // this.cartDataServer.data.product.
-        const index = this.cartDataServer.data.findIndex(p => {
-          console.log(p.product._id , product._id)
-          return p.product._id ===  product._id;
-        });
+        const index = this.cartDataServer.data.findIndex(p => p.product._id ===  product._id);
 
         // 1. If chosen product is already in cart array
         if (index !== -1) {
@@ -145,7 +143,7 @@ export class CartService {
 
 
   this.cartDataClient.prodData[index].incart = this.cartDataServer.data[index].numInCart;
-  this.toast.info(`${product.title} quantity updated in the cart.`, 'Product Updated', {
+  this.toastr.info(`${product.title} quantity updated in the cart.`, 'Product Updated', {
             timeOut: 1500,
             progressBar: true,
             progressAnimation: 'increasing',
@@ -155,14 +153,14 @@ export class CartService {
         // 2. If chosen product is not in cart array
         else {
           this.cartDataServer.data.push({
-            product: product,
+            product,
             numInCart: 1
           });
           this.cartDataClient.prodData.push({
             incart: 1,
             _id: product._id
           });
-          this.toast.success(`${product.title} added to the cart.`, 'Product Added', {
+          this.toastr.success(`${product.title} added to the cart.`, 'Product Added', {
             timeOut: 1500,
             progressBar: true,
             progressAnimation: 'increasing',
@@ -189,7 +187,7 @@ export class CartService {
       this.CalculateTotal();
 
       this.cartDataClient.total = this.cartDataServer.total;
-      console.log(this.cartDataServer,this.cartDataClient)
+
 
       this.cartDataObs$.next({...this.cartDataServer});
       localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
@@ -216,8 +214,6 @@ export class CartService {
 
 
   DeleteProductFromCart(index) {
-    /*    console.log(this.cartDataClient.prodData[index].prodId);
-        console.log(this.cartDataServer.data[index].product.id);*/
 
     if (window.confirm('Are you sure you want to delete the item?')) {
       this.cartDataServer.data.splice(index, 1);
@@ -290,7 +286,7 @@ export class CartService {
       } else {
         this.spinner.hide().then();
         this.router.navigateByUrl('/checkout').then();
-        this.toast.error(`Sorry, failed to book the order`, 'Order Status', {
+        this.toastr.error(`Sorry, failed to book the order`, 'Order Status', {
           timeOut: 1500,
           progressBar: true,
           progressAnimation: 'increasing',
@@ -305,8 +301,7 @@ export class CartService {
     this.cartDataServer.data.forEach(p => {
       const {numInCart} = p;
       const {price} = p.product;
-      // @ts-ignore
-      console.log(p)
+
       Total += numInCart * price;
     });
     this.cartDataServer.total = Total;

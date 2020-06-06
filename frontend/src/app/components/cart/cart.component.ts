@@ -20,4 +20,8 @@ export class CartComponent implements OnInit {
     console.log(this.cartData, this.cartTotal)
   }
 
+
+  ChangeQuantity(id: number, increaseQuantity: boolean) {
+    this.cartService.UpdateCartData(id, increaseQuantity);
+  }
 }

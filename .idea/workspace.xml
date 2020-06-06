@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dd0f13b-423a-46a8-a5c9-262dd5df1460" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" afterDir="false" />
     </list>
@@ -21,29 +21,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+            <state relative-caret-position="516">
+              <caret line="34" column="79" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="79" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#936#960#0" expanded="true" />
+                <element signature="e#1883#1904#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Themes/E-commerce/electro/checkout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1360">
-              <caret line="385" column="25" lean-forward="true" selection-start-line="208" selection-start-column="8" selection-end-line="385" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            <state relative-caret-position="459">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -74,6 +72,7 @@
       <find>toast</find>
       <find>curre</find>
       <find>container</find>
+      <find>name</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,7 +91,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/services/order.service.ts" />
         <option value="$PROJECT_DIR$/BackEnd/controllers/productController.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/services/product.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/module/cart.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/module/product.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" />
@@ -101,8 +99,10 @@
         <option value="$PROJECT_DIR$/frontend/src/app/components/header/header.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/header/header.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/module/cart.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" />
       </list>
     </option>
   </component>
@@ -214,12 +214,12 @@
       <workItem from="1591363388630" duration="2074000" />
       <workItem from="1591388241698" duration="14000" />
       <workItem from="1591391526852" duration="11580000" />
-      <workItem from="1591416927532" duration="2153000" />
+      <workItem from="1591416927532" duration="3942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28433000" />
+    <option name="totallyTimeSpent" value="30222000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -238,7 +238,7 @@
       <window_info id="Structure" order="1" sideWeight="0.5005767" side_tool="true" weight="0.24960254" />
       <window_info id="Favorites" order="2" sideWeight="0.5005767" side_tool="true" weight="0.24960254" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298731" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3298731" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -383,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/module/cart.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/module/product.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -451,37 +444,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="102" column="1" selection-start-line="102" selection-start-column="1" selection-end-line="102" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Themes/E-commerce/electro/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="385" column="25" lean-forward="true" selection-start-line="208" selection-start-column="8" selection-end-line="385" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/services/cart.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="281" column="17" lean-forward="true" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="17" />
+        <state relative-caret-position="1006">
+          <caret line="223" column="44" lean-forward="true" selection-start-line="223" selection-start-column="44" selection-end-line="223" selection-end-column="44" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/module/cart.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Themes/E-commerce/electro/checkout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1360">
-          <caret line="385" column="25" lean-forward="true" selection-start-line="208" selection-start-column="8" selection-end-line="385" selection-end-column="25" />
+        <state relative-caret-position="221">
+          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+        <state relative-caret-position="516">
+          <caret line="34" column="79" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#936#960#0" expanded="true" />
+            <element signature="e#1883#1904#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

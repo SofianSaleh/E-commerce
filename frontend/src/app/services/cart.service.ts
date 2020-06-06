@@ -222,7 +222,7 @@ export class CartService {
       this.cartDataClient.total = this.cartDataServer.total;
 
       if (this.cartDataClient.total === 0) {
-        this.cartDataClient = {prodData: [{incart: 0, id: 0}], total: 0};
+        this.cartDataClient = {prodData: [{incart: 0, id: ''}], total: 0};
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
       } else {
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));

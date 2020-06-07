@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.cartDataObs$.subscribe((data: CartModelServer ) => this.cartData = data);
-    this.cartService.cartTotal$.subscribe(total => this.cartTotal = total);
+    this.cartService.cartTotal$.subscribe(total => this.cartTotal = total)
     console.log(this.cartData, this.cartTotal)
   }
 

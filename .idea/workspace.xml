@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dd0f13b-423a-46a8-a5c9-262dd5df1460" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/module/cart.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/module/cart.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/module/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/module/product.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,27 +24,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="34" column="79" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="79" />
+            <state relative-caret-position="204">
+              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#936#960#0" expanded="true" />
-                <element signature="e#1883#1904#0" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="425">
+              <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -73,6 +73,8 @@
       <find>curre</find>
       <find>container</find>
       <find>name</find>
+      <find>fav</find>
+      <find>paymen</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,18 +93,20 @@
         <option value="$PROJECT_DIR$/frontend/src/app/services/order.service.ts" />
         <option value="$PROJECT_DIR$/BackEnd/controllers/productController.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/services/product.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/module/product.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" />
-        <option value="$PROJECT_DIR$/frontend/angular.json" />
         <option value="$PROJECT_DIR$/frontend/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/header/header.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/header/header.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/module/cart.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/module/product.module.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/module/cart.module.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/services/cart.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/angular.json" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.html" />
       </list>
     </option>
   </component>
@@ -160,14 +164,6 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="cart" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="E-commerce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E-commerce" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -214,12 +210,13 @@
       <workItem from="1591363388630" duration="2074000" />
       <workItem from="1591388241698" duration="14000" />
       <workItem from="1591391526852" duration="11580000" />
-      <workItem from="1591416927532" duration="3942000" />
+      <workItem from="1591416927532" duration="4604000" />
+      <workItem from="1591512069756" duration="4419000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30222000" />
+    <option name="totallyTimeSpent" value="35303000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -383,13 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/module/product.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -397,13 +387,6 @@
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="48" column="78" selection-start-line="48" selection-start-column="78" selection-end-line="48" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -453,37 +436,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Themes/E-commerce/electro/checkout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="385" column="25" lean-forward="true" selection-start-line="208" selection-start-column="8" selection-end-line="385" selection-end-column="25" />
+        <state relative-caret-position="323">
+          <caret line="385" column="25" selection-start-line="208" selection-start-column="8" selection-end-line="385" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/module/product.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/module/cart.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/services/cart.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1006">
-          <caret line="223" column="44" lean-forward="true" selection-start-line="223" selection-start-column="44" selection-end-line="223" selection-end-column="44" />
+        <state relative-caret-position="-1309">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/module/cart.module.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/angular.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="1333">
+          <caret line="115" column="11" lean-forward="true" selection-start-line="115" selection-start-column="11" selection-end-line="115" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="34" column="79" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="79" />
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="6" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#936#960#0" expanded="true" />
-            <element signature="e#1883#1904#0" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -491,10 +489,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="306">
+          <caret line="18" column="74" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/checkout/checkout.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

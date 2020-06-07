@@ -21,12 +21,12 @@ export class CartService {
 
   /* Variable to store data in the local storage*/
   // @ts-ignore
-  private cartDataClient: CartModelPublic = {prodData: [{incart: 0, id: ''}], total: 0};
+  private cartDataClient = {prodData: [{incart: 0, id: ''}], total: 0};
 
 
   /* Variable to store data in the server */
   // @ts-ignore
-  private cartDataServer: CartModelServer = {
+  private cartDataServer: CartModelServer1 = {
     data: [{
       product: undefined,
       numInCart: 0

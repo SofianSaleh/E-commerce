@@ -80,8 +80,8 @@ let getSingleOrder = async (order_id) => {
 let addProductsToOrder = async (products) => {
   try {
     let arrOfIds = [];
-    if (id.match(/^[0-9a-fA-F]{24}$/)) {
     for (let i = 0; i < products.length; i++) {
+    if (products[i].id.match(/^[0-9a-fA-F]{24}$/)) {
       console.log(i)
       let productQuantityCheck = await Product.findOne({ _id: products[i]._id });
 console.log(productQuantityCheck)

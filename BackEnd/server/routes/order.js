@@ -39,6 +39,7 @@ router.get(`/:id`, async (req, res) => {
 // add an order
 router.post(`/add`, async (req, res) => {
   try {
+console.log(req.body)
     const ordered = await createOrder(req.body);
     res.status(200).json(ordered);
   } catch (e) {
@@ -49,9 +50,10 @@ router.post(`/add`, async (req, res) => {
 });
 
 router.post(`/payment`, (req,res) => {
-  return {
-    success:true
-  }
+  res.json(
+      {
+        success:true
+      })
 })
 
 module.exports = router;

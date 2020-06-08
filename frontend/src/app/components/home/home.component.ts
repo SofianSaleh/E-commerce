@@ -18,13 +18,14 @@ export class HomeComponent implements OnInit {
               private router: Router) {}
   ngOnInit(): void {
     this.productService
-      .getAllProducts(3)
+      .getAllProducts(5)
       .subscribe(
         (prods: ServerResponse) => {
-          console.log(prods);
+
           this.products = prods.products;
         }
       );
+    console.log(this.products)
   }
 
   selectedProduct(id: string) {

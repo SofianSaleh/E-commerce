@@ -9,7 +9,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/product/product.component';
-import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { ThankyouComponent } from './components/thank-you/thank-you.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
@@ -27,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     CheckoutComponent,
     HomeComponent,
     ProductComponent,
-    ThankYouComponent,
+    ThankyouComponent,
   ],
   imports: [
     BrowserModule,

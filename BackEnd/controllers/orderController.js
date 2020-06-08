@@ -81,22 +81,24 @@ let addProductsToOrder = async (products) => {
   try {
     let arrOfIds = [];
     for (let i = 0; i < products.length; i++) {
-      let productQuantityCheck = await Product.findOne({ _id: products[i].id });
+      console.log(i)
+      let productQuantityCheck = await Product.findOne({ _id: products[i]._id });
+console.log(productQuantityCheck)
 
-      if (productQuantityCheck.quantity >= products[i].quantity) {
+      if (productQuantityCheck.quantity >= products[i].incart) {
         let newOrderedProduct = new OrderDetails({
-          product_id: products[i].id,
-          quantity: products[i].quantity,
+          product_id: products[i]._id,
+          quantity: products[i].incart,
         });
-
+console.log(newOrderedProduct)
         await newOrderedProduct.save();
 
         arrOfIds.push(newOrderedProduct._id);
 
-        await Product.update(
-          { _id: products[i].id },
-          { $inc: { quantity: -products[i].quantity } }
-        );
+        productQuantityCheck.quantity -= products[i].incart
+        productQuantityCheck.save()
+
+         console.log(`hi`)
       } else {
         return ` Not enough items left there are only ${productQuantityCheck.quantity} left of ${productQuantityCheck.title} `;
       }
@@ -110,7 +112,9 @@ let addProductsToOrder = async (products) => {
 // Creating the order in the database
 let createOrder = async ({ user_id, products }) => {
   try {
+
     const ordersArr = await addProductsToOrder(products);
+    console.log(ordersArr)
     console.log(!Array.isArray(ordersArr));
     if (!Array.isArray(ordersArr)) {
       return {

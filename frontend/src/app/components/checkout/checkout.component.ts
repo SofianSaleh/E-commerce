@@ -22,14 +22,13 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.cartTotal$.subscribe(total => this.cartTotal = total);
-    this.cartService.cartDataObs$.subscribe(data => this.cartData = data);
-    console.log(this.cartTotal, this.cartData.total)
+    this.cartService.cartDataObs$.subscribe(data => this.cartData = data.data);
   }
 
   onCheckout(){
     this.spinner.show().then(p =>{
-     this.cartService.CheckoutFromCart()
-    })
+     this.cartService.CheckoutFromCart('5ed4c71cbdfacb35cc08f0a6');
+    });
   }
 
 }

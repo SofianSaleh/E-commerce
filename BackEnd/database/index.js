@@ -7,6 +7,12 @@ mongoose.connect(URI, {
   useCreateIndex: true,
 });
 
+// mongoose.connect(URI_OFFLINE, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+// });
+
 const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));

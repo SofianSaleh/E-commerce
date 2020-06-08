@@ -54,7 +54,8 @@ export class CartService {
 
 
     //  get the info from local Storage (if any)
-    const info: CartModelPublic = JSON.parse(localStorage.getItem('cart'));
+
+      const info: CartModelPublic =  JSON.parse(localStorage.getItem('cart'));
 
     if (info !== null && info !== undefined && info.prodData[0].incart !== 0) {
       // assign the value to our data variable which corresponds to the LocalStorage data format
@@ -249,26 +250,26 @@ export class CartService {
 
   }
 
-  CheckoutFromCart(userId: number) {
+  CheckoutFromCart(userId: string) {
 
-    this.httpClient.post(`${this.ServerURL}orders/payment`, null).subscribe((res: { success: boolean }) => {
+    this.httpClient.post(`${this.ServerURL}/order/payment`, null).subscribe((res: { success: boolean }) => {
       console.clear();
-
       if (res.success) {
-
-
         this.resetServerData();
-        this.httpClient.post(`${this.ServerURL}orders/new`, {
-          user_Id: userId,
+        this.httpClient.post(`${this.ServerURL}/order/add`, {
+          user_id: userId,
           products: this.cartDataClient.prodData
         }).subscribe((data: OrderConfirmationResponse) => {
 
+
           this.orderService.getSingleOrder(data.order._id).then(prods => {
+            console.log(prods, `prods`)
+            console.log(prods.singleOrder.orders_id)
             if (data.success) {
               const navigationExtras: NavigationExtras = {
                 state: {
                   message: data.message,
-                  products: prods,
+                  products: prods.singleOrder.orders_id,
                   orderId: data.order._id,
                   total: this.cartDataClient.total
                 }
@@ -280,6 +281,9 @@ export class CartService {
                 this.cartTotal$.next(0);
                 localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
               });
+            }else{
+              this.spinner.hide().then();
+              this.router.navigate(['/']).then();
             }
           });
 

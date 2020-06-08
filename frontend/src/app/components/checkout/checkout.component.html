@@ -10,7 +10,7 @@
 
 
 <!-- SECTION -->
-<div class="section" *ngIf="cartData.data.total > 0 || cartData.data.total !== undefined">
+<div class="section" *ngIf="cartTotal > 0 && cartTotal !== undefined">
   <!-- container -->
   <div class="container">
     <!-- row -->
@@ -144,7 +144,7 @@
             I've read and accept the <a href="#">terms & conditions</a>
           </label>
         </div>
-        <button class="btn btn-outline-danger btn-sm my-2 btn-block order-submit" (click)="oncheckout()">Place order</button>
+        <button class="btn btn-outline-danger btn-sm my-2 btn-block order-submit" (click)="onCheckout()">Place order</button>
       </div>
       <!-- /Order Details -->
     </div>
@@ -156,7 +156,7 @@
 
 <div class="text-center my-5 "
      style="margin-top: 15px; margin-bottom: 15px"
-     *ngIf="cartData.data.total <= 0 || cartData.data.total === undefined">
+     *ngIf="cartTotal <= 0 || cartTotal === undefined">
   <h4> YOUR CART IS EMPTY </h4>
   <button class="btn btn-primary btn-large ml-3 " routerLink="/">GO TO SHOP</button>
 </div>

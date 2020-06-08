@@ -14,6 +14,7 @@ export class OrderService {
 // get single order
 
   getSingleOrder(id: string){
+    console.log(id)
     return this.http.get<ProductResponseInterface>(`${this.serverUrl}/order/${id}`).toPromise();
   }
 }
@@ -27,3 +28,4 @@ interface ProductResponseInterface {
   quantity: number;
   image: string;
 }
+  

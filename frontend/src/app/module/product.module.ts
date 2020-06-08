@@ -4,6 +4,7 @@ export interface Category {
 
 export interface ProductModelServer {
   product: {
+    images: any[];
     _id: string;
     title: string;
     description: string;

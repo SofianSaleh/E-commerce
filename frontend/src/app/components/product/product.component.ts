@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit, AfterViewInitit {
   product;
   thumbImages: any[] = [];
 
-  constructor(private productServide: ProductService,
+  constructor(private productService: ProductService,
               private cartService: CartService,
               private route: ActivatedRoute) {}
 
@@ -27,17 +27,18 @@ export class ProductComponent implements OnInit, AfterViewInitit {
       .pipe(
         map((param: ParamMap) => {
           console.log(param)
-          return param.param.id;
+          return param.params.id;
         })
       )
       .subscribe(prodId => {
         console.log(prodId)
         this.id = prodId;
-        this.productServide.getSingleProduct(this.id).subscribe(prod => {
+        this.productService.getSingleProduct(JSON.stringify(this.id)).subscribe(prod => {
+          console.log(prod)
           this.product = prod
 
-          if(prod.images !== null){
-            this.thumbImages = prod.images
+          if(prod.product.images !== null){
+            this.thumbImages = prod.product.images;
           }
         })
       });
